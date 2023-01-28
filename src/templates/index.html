@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<div id="header1">
+    <head>
+        <title>The Watcher</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='tablestyle.css') }}">
+    </head>
+</div>
+<body>
+    <h1>The Watcher</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%- for service in services_status %}
+            <tr>
+                <td>{{ service.name }}</td>
+                {% if service.status == 0 %}
+                    <td>Running <span>&#9989;</span></td>
+                {% else %}
+                    <td>Not running <span>&#10060;</span></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

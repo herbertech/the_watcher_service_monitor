@@ -1,0 +1,1 @@
+services_to_monitor = ['sshd', 'apparmor']
